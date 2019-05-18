@@ -4,18 +4,20 @@
  * @var \App\Model\Entity\Tarefa[]|\Cake\Collection\CollectionInterface $tarefas
  */
 ?>
+
 <div class="row">
     <nav class="col-sm-3" id="actions-sidebar">
         <div class="row">
             <div class="col-sm-12">
                 <ul class="side-nav">
+                    <li class="heading">TAREFAS PENDENTES!</li>
                     <li><?= $this->Html->link(__('Adicionar tarefa'), ['action' => 'add'],
                             ['class' => 'btn btn-clock btn-success']) ?></li>
                 </ul>
             </div>
         </div>
         <?php foreach ($tarefas as $tarefa): ?>
-            <div class="row espacamento-bottom">
+            <div class="row espacamento-bottom div-movimenta">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -58,43 +60,31 @@
                 <div class="card-header">
                     Fazendo
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
+                <div class="card-body tamanho-padrao">
+
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
                     Testando
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional
-                        content.</p>
-                    <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
+                <div class="card-body tamanho-padrao">
+
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
                     Concluído
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
+                <div class="card-body tamanho-padrao">
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $( document ).ready(function() {
+        $('.div-movimenta').draggable();
+    });
+</script>

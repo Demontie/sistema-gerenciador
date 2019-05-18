@@ -4,22 +4,33 @@
  * @var \App\Model\Entity\Tarefa $tarefa
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Tarefas'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="tarefas form large-9 medium-8 columns content">
-    <?= $this->Form->create($tarefa) ?>
-    <fieldset>
-        <legend><?= __('Add Tarefa') ?></legend>
-        <?php
-            echo $this->Form->control('titulo');
-            echo $this->Form->control('descricao');
-            echo $this->Form->control('nivel_prioridade');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<br>
+    <div class="col-sm-12">
+        <div class="row justify-content-sm-center">
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2><?= __('Formulário de tarefa') ?></h2>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <?=$this->Html->link(__('Lista de tarefas'), ['action' => 'index'],['class' => 'btn btn-info'])?>
+                    </div>
+                </div>
+                <?= $this->Form->create($tarefa) ?>
+
+                    <?php
+                    $niveis = [1=>1, 2, 3,4,5];
+                    echo $this->Form->control('titulo', ['class' => 'form-control']);
+                    echo $this->Form->control('descricao');
+                    echo $this->Form->control('nivel_prioridade', [
+                        'type' => 'select',
+                        'options' => $niveis,
+                    ]);
+                    ?>
+<br>
+                <?= $this->Form->button(__('Salvar'), ['class' => 'btn btn-success']) ?>
+                <?= $this->Form->end() ?>
+            </div>
+        </div>
+    </div>
+

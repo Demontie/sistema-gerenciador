@@ -526,3 +526,12 @@ table td {
 .espacamento-bottom{
     margin-bottom: 8px !important;
 }
+
+.div-movimenta{
+    z-index: 1000;
+    cursor: move;
+}
+
+.tamanho-padrao{
+    height: 440px;
+}
