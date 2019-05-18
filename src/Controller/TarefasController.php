@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -19,7 +20,9 @@ class TarefasController extends AppController
      */
     public function index()
     {
-        $tarefas = $this->paginate($this->Tarefas);
+        $tarefas = $this->paginate($this->Tarefas, array(
+            'order' => array('nivel_prioridade' => 'desc')
+        ));
 
         $this->set(compact('tarefas'));
     }
@@ -51,11 +54,11 @@ class TarefasController extends AppController
         if ($this->request->is('post')) {
             $tarefa = $this->Tarefas->patchEntity($tarefa, $this->request->getData());
             if ($this->Tarefas->save($tarefa)) {
-                $this->Flash->success(__('The tarefa has been saved.'));
+                $this->Flash->success(__('Tarefa adicionada com sucesso!'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The tarefa could not be saved. Please, try again.'));
+            $this->Flash->error(__('A tarefa não pode ser salva, por favor tente novamente!'));
         }
         $this->set(compact('tarefa'));
     }
@@ -75,11 +78,11 @@ class TarefasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $tarefa = $this->Tarefas->patchEntity($tarefa, $this->request->getData());
             if ($this->Tarefas->save($tarefa)) {
-                $this->Flash->success(__('The tarefa has been saved.'));
+                $this->Flash->success(__('Tarefa editada com sucesso!'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The tarefa could not be saved. Please, try again.'));
+            $this->Flash->error(__('A tarefa não pode ser editada, por favor tente novamente.'));
         }
         $this->set(compact('tarefa'));
     }
@@ -96,9 +99,9 @@ class TarefasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $tarefa = $this->Tarefas->get($id);
         if ($this->Tarefas->delete($tarefa)) {
-            $this->Flash->success(__('The tarefa has been deleted.'));
+            $this->Flash->success(__('Tarefa deletada com sucesso!'));
         } else {
-            $this->Flash->error(__('The tarefa could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A tarefa não pode ser deletada, por favor tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

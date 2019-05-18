@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller\Api\V1;
 
 use App\Controller\AppController;
@@ -8,11 +9,13 @@ class TarefasController extends AppController
 
     public function index()
     {
-        $tarefas = $this->Tarefas->find('all');
+        $tarefas = $this->Tarefas->find('all', array(
+            'order' => array('nivel_prioridade' => 'desc')
+        ));
 
         $this->set([
-            'data'=>$tarefas,
-            '_serialize'=> ['data']
+            'data' => $tarefas,
+            '_serialize' => ['data']
         ]);
     }
 
@@ -25,6 +28,7 @@ class TarefasController extends AppController
             '_serialize' => ['data']
         ]);
     }
+
     public function add()
     {
         $tarefa = $this->Tarefas->newEntity($this->request->getData());
@@ -39,6 +43,7 @@ class TarefasController extends AppController
             '_serialize' => ['data', 'message']
         ]);
     }
+
     public function edit($id)
     {
         $tarefa = $this->Tarefas->get($id);
@@ -54,6 +59,7 @@ class TarefasController extends AppController
             '_serialize' => ['data', 'message']
         ]);
     }
+
     public function delete($id)
     {
         $tarefa = $this->Tarefas->get($id);
