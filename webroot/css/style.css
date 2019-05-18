@@ -522,3 +522,7 @@ table td {
     vertical-align: top;
     word-break: break-all;
 }
+
+.espacamento-bottom{
+    margin-bottom: 8px !important;
+}
