@@ -56,3 +56,8 @@ o servidor embutido com, por exemplo:
 bin/cake server -p 9008
 ```
 Acesse [locahost:9008](http://locahost:9008/) ou seuip:9008
+
+
+### ACESSO A API
+
+http://localhost:9008/api/v1/tarefas.json
