@@ -13,11 +13,11 @@ Com o docker e docker compose instalado você ira executar o seguinte comando
 ```bash
 sudo docker-compose up -d
 ```
-Logo apos de baixar a imagens, você terá que baixar as dependencias do CakePHP
+Logo apos de baixar as imagens, você terá que baixar as dependências do CakePHP
 ```bash
 sudo docker exec -it testePratico composer install
 ```
-Com pacotes baixados rodar comando para criar banco de dados
+Com pacotes baixados, rodar comando para criar tabelas
 ```bash
 sudo docker exec -it testePratico ./bin/cake migrations migrate
 ```
@@ -66,7 +66,7 @@ PUT,DELETE,EDIT
 http://localhost:9008/api/v1/tarefas/IDTAREFA.json
 ou http://seuip:9008/api/v1/tarefas/IDTAREFA.json
 
-#####CAMPOS: 
+##### CAMPOS 
 titulo:string, 
 descricao:text, 
 nivel_prioridade:integer 
