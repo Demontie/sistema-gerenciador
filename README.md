@@ -59,5 +59,9 @@ Acesse [locahost:9008](http://locahost:9008/) ou seuip:9008
 
 
 ### ACESSO A API
-
+GET,POST
 http://localhost:9008/api/v1/tarefas.json
+PUT,DELETE,EDIT
+http://localhost:9008/api/v1/tarefas/IDTAREFA.json
+
+CAMPOS: titulo:string, descricao:text, nivel_prioridade:integer 
