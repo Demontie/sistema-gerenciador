@@ -17,11 +17,14 @@ Logo apos de baixar as imagens, você terá que baixar as dependências do CakeP
 ```bash
 sudo docker exec -it testePratico composer install
 ```
+
+Apos isso edite o arquivo `config/app.php` procure por `'Datasources'` e mude o host para seu ip local.
+
 Com pacotes baixados, rodar comando para criar tabelas
 ```bash
-sudo docker exec -it testePratico ./bin/cake migrations migrate
+sudo docker exec -it testePratico bin/cake migrations migrate
 ```
-Acesse [locahost:9008](http://locahost:9008/) ou seuip:9008, que foi definido no docker-compose.yml
+Acesse [localhost:9008](http://localhost:9008/) ou seuip:9008, que foi definido no docker-compose.yml
 
 ### Utilizando a própria maquina
 ### Requisitos para instalar o cakePHP
@@ -55,7 +58,7 @@ o servidor embutido com, por exemplo:
 ```bash
 bin/cake server -p 9008
 ```
-Acesse [locahost:9008](http://locahost:9008/) ou seuip:9008
+Acesse [localhost:9008](http://localhost:9008/) ou seuip:9008
 
 
 ### ACESSO A API
