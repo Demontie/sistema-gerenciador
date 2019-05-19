@@ -22,7 +22,7 @@ Apos isso edite o arquivo `config/app.php` procure por `'Datasources'` e mude o 
 
 Com pacotes baixados, rodar comando para criar tabelas
 ```bash
-sudo docker exec -it testePratico bin/cake migrations migrate
+sudo docker exec -it testePratico bash -c './bin/cake migrations migrate'
 ```
 Acesse [localhost:9008](http://localhost:9008/) ou seuip:9008, que foi definido no docker-compose.yml
 
